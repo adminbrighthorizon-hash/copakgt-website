@@ -1,0 +1,301 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    id: 'electrical',
+    icon: '⚡',
+    title: 'Electrical Equipment',
+    image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=900&h=600&q=80',
+    color: 'orange',
+    desc: 'Complete electrical supply solutions for industrial facilities, including power distribution, lighting, and control systems.',
+    items: [
+      'Cable trunking boxes',
+      'Electrical plugs and sockets',
+      'Electric motors',
+      'Electrical panels and switchgear',
+      'Circuit breakers',
+      'Mini substations',
+      'Transformers',
+      'Generators',
+      'Solar lighting systems',
+      'Electrical cables',
+      'Cable ends and sleeves',
+    ],
+  },
+  {
+    id: 'pumps',
+    icon: '💧',
+    title: 'Pumps',
+    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&h=600&q=80',
+    color: 'orange',
+    desc: 'Industrial pump supply and maintenance services across all applications, from clear water to aggressive chemical environments.',
+    items: [
+      'Multistage pumps',
+      'Chemical pumps',
+      'Clear water pumps',
+      'Dosing pumps',
+    ],
+  },
+  {
+    id: 'valves',
+    icon: '🔧',
+    title: 'Valves',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&h=600&q=80',
+    color: 'orange',
+    desc: 'Industrial valve solutions for fluid control in pipelines, process systems, and chemical plants.',
+    items: [
+      'Diaphragm valves',
+      'Guillotine valves',
+      'Pinch valves',
+      'Butterfly valves',
+    ],
+  },
+  {
+    id: 'instrumentation',
+    icon: '📡',
+    title: 'Instrumentation',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&h=600&q=80',
+    color: 'blue',
+    desc: 'Precision industrial instrumentation for measurement, monitoring, and process control.',
+    items: [
+      'Pressure transmitters',
+      'Temperature transmitters',
+      'Flow meters',
+      'Vibration monitoring sensors',
+      'Industrial probes',
+    ],
+  },
+  {
+    id: 'conveyor',
+    icon: '🏗️',
+    title: 'Conveyor Belt Systems',
+    image: 'https://images.unsplash.com/photo-1513828583688-c4eb6e88040a?auto=format&fit=crop&w=900&h=600&q=80',
+    color: 'orange',
+    desc: 'Comprehensive conveyor belt component supply for mining, processing, and bulk material handling operations.',
+    items: [
+      'Conveyor belt accessories',
+      'Pulleys & tension pulleys',
+      'Floor plates & wear plates',
+      'V-plough scrapers',
+      'Impact, return & curve idlers',
+      'Couplings & reducers',
+      'Rollers',
+      'Conductive & non-conductive drums',
+    ],
+  },
+  {
+    id: 'electrowinning',
+    icon: '⚗️',
+    title: 'Plates, Pipes & Electrowinning',
+    image: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&h=600&q=80',
+    color: 'blue',
+    desc: 'Supply of electrowinning equipment and stainless steel materials for copper and cobalt processing operations.',
+    items: [
+      'Metal plates (various sizes)',
+      'Stainless steel 316L plates',
+      'Stainless steel pipes',
+      'Cathodes',
+      'Anodes',
+      'Demister balls',
+      'Edge strips',
+    ],
+  },
+  {
+    id: 'geomembrane',
+    icon: '🛡️',
+    title: 'Geomembrane Solutions',
+    image: 'https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?auto=format&fit=crop&w=900&h=600&q=80',
+    color: 'orange',
+    desc: 'Supply, installation, and maintenance of industrial geomembranes for ponds, tailings dams, and lining applications.',
+    items: [
+      'Geomembrane supply',
+      'Site installation',
+      'Maintenance and inspection',
+    ],
+  },
+  {
+    id: 'lab',
+    icon: '🧪',
+    title: 'Laboratory Equipment',
+    image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=900&h=600&q=80',
+    color: 'blue',
+    desc: 'Equipment supply for industrial and medical laboratories, supporting quality control and analysis operations.',
+    items: [
+      'Industrial laboratory equipment',
+      'Medical laboratory equipment',
+      'High-quality reagents and chemicals',
+      'Industrial filtration systems',
+    ],
+  },
+  {
+    id: 'ppe',
+    icon: '🦺',
+    title: 'Personal Protective Equipment',
+    image: 'https://images.unsplash.com/photo-1578496480157-697fc14d2e55?auto=format&fit=crop&w=900&h=600&q=80',
+    color: 'orange',
+    desc: 'Complete PPE range to international safety standards, protecting your workforce on every site.',
+    items: [
+      'Safety helmets',
+      'Rubber & safety boots',
+      'Protective work clothing',
+      'Ear protection',
+      'Gloves',
+      'Work lamps and belts',
+      'Rain suits & reflective clothing',
+      'Protective glasses',
+      'Dust masks',
+      'Helmet protection nets',
+    ],
+  },
+  {
+    id: 'welding',
+    icon: '🔥',
+    title: 'Mechanical & HDPE Welding',
+    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&h=600&q=80',
+    color: 'blue',
+    desc: 'Specialist welding services for industrial equipment installation, maintenance, and HDPE pipeline construction.',
+    items: [
+      'Industrial equipment installation',
+      'Equipment maintenance welding',
+      'HDPE pipeline welding',
+      'Mechanical fabrication',
+    ],
+  },
+  {
+    id: 'crusher',
+    icon: '⛏️',
+    title: 'Crusher Equipment & Wear Parts',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&h=600&q=80',
+    color: 'orange',
+    desc: 'End-to-end supply and maintenance support for crushing plants in mining and mineral processing operations.',
+    items: [
+      'Jaw & cone crusher supply',
+      'Wear liners, mantles & blow bars',
+      'Crusher spare parts and bearings',
+      'Preventive maintenance support',
+      'Installation & commissioning support',
+    ],
+  },
+  {
+    id: 'other',
+    icon: '📦',
+    title: 'Other Industrial Products',
+    image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=900&h=600&q=80',
+    color: 'blue',
+    desc: 'Wide range of auxiliary industrial supplies to support operations and maintenance across project types.',
+    items: [
+      'Paints',
+      'Screws and nuts',
+      'Bulk bags',
+      'Chocking blocks',
+      'Straps',
+      'Cement',
+      'Padlocks',
+    ],
+  },
+];
+---
+
+<Layout title="Services — COPAK General Trading" description="COPAK General Trading provides electrical, mechanical, instrumentation, conveyor, PPE, lab equipment, pumps, valves, and more across the DRC.">
+
+  <!-- PAGE HERO -->
+  <section class="relative py-28 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&h=900&q=80"
+        alt=""
+        class="w-full h-full object-cover"
+        style="animation: subtle-zoom 24s ease-in-out infinite alternate;"
+        onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&h=900&q=80';"
+      />
+      <div class="absolute inset-0 bg-[#0d1b2a]/78"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0d1b2a]/88 via-[#1a2838]/55 to-[#0d1b2a]/72"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+      <p class="text-orange-400 text-xs font-semibold tracking-widest uppercase mb-3">What We Offer</p>
+      <h1 class="text-5xl lg:text-6xl font-['Rajdhani'] font-bold text-white mb-6 leading-tight">
+        Products &amp; <span class="text-orange-400">Services</span>
+      </h1>
+      <p class="text-gray-300 text-lg max-w-2xl leading-relaxed">
+        A comprehensive range of industrial equipment and specialized services — from supply and installation to maintenance and technical support — across 12+ service categories.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICE OVERVIEW STATS -->
+  <section class="bg-[#2a4563] border-y border-orange-500/15 py-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      {[
+        { value: '12+', label: 'Service Categories' },
+        { value: '60+', label: 'Product Lines' },
+        { value: '100%', label: 'Quality Assured' },
+        { value: '24/7', label: 'Technical Support' },
+      ].map(s => (
+        <div>
+          <p class="text-3xl font-['Rajdhani'] font-bold text-orange-400">{s.value}</p>
+          <p class="text-gray-400 text-xs tracking-widest uppercase mt-1">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- SERVICE CARDS -->
+  <section class="py-20 max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+      {services.map(s => (
+        <div class={`group bg-[#35546d] border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col ${s.color === 'blue' ? 'border-blue-400/20 hover:border-blue-400/35' : 'border-orange-400/20 hover:border-orange-400/35'}`}>
+          <!-- Service Image -->
+          <div class="relative h-44 overflow-hidden bg-gradient-to-br from-[#4b6a83] to-[#274056]">
+            <img 
+              src={s.image}
+              alt={s.title}
+              loading="lazy"
+              onerror="this.src='https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&h=600&q=80'"
+              class="w-full h-full object-cover opacity-100 group-hover:scale-105 transition-all duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1f3447]/35 via-transparent to-transparent pointer-events-none"></div>
+            <div class="absolute top-3 right-3 text-[11px] px-2 py-1 rounded-full bg-black/35 text-white/90 border border-white/20 backdrop-blur-sm">CGT</div>
+          </div>
+          
+          <!-- Service Content -->
+          <div class="p-8 flex flex-col flex-1">
+            <div class="flex items-center gap-4 mb-4">
+              <div class={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl ${s.color === 'blue' ? 'bg-blue-600/20' : 'bg-orange-500/20'}`}>
+                {s.icon}
+              </div>
+              <h3 class="text-white font-['Rajdhani'] font-bold text-xl leading-tight">{s.title}</h3>
+            </div>
+            <p class="text-gray-300 text-sm leading-relaxed mb-5">{s.desc}</p>
+            <ul class="mt-auto space-y-1.5">
+              {s.items.slice(0, 5).map(item => (
+                <li class="flex items-start gap-2 text-sm text-gray-300">
+                  <span class={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${s.color === 'blue' ? 'bg-blue-500' : 'bg-orange-500'}`}></span>
+                  {item}
+                </li>
+              ))}
+              {s.items.length > 5 && (
+                <li class="text-xs text-gray-500 italic pt-2 pl-3">+{s.items.length - 5} more items</li>
+              )}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-[#2a4563] border-t border-orange-500/15">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-['Rajdhani'] font-bold text-white mb-4">Need a Specific Solution?</h2>
+      <p class="text-gray-300 mb-8 leading-relaxed">
+        CGT provides customized solutions tailored to the specific requirements of each client. Tell us what you need and our team will respond promptly.
+      </p>
+      <a href="/contact" class="inline-block px-10 py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white font-semibold rounded transition-all duration-200 shadow-lg shadow-orange-600/40 tracking-wide">
+        Request a Quote
+      </a>
+    </div>
+  </section>
+
+</Layout>

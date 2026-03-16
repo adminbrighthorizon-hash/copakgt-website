@@ -1,11 +1,326 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const stats = [
+  { value: '2023', label: 'Founded', icon: '📅' },
+  { value: '14+', label: 'Service Categories', icon: '🏭' },
+  { value: '100%', label: 'Quality Commitment', icon: '✅' },
+  { value: 'DRC', label: 'Lubumbashi Based', icon: '📍' },
+];
+
+const highlights = [
+  {
+    icon: '⚡',
+    title: 'Electrical Systems',
+    desc: 'Complete electrical solutions including motors, panels, generators, solar systems, and cables.',
+    color: 'orange',
+  },
+  {
+    icon: '💧',
+    title: 'Pumps & Valves',
+    desc: 'Industrial pumps, chemical valves, diaphragm and butterfly valves for all applications.',
+    color: 'blue',
+  },
+  {
+    icon: '📡',
+    title: 'Instrumentation',
+    desc: 'Pressure & temperature transmitters, flow meters, vibration sensors, and industrial probes.',
+    color: 'orange',
+  },
+  {
+    icon: '🧪',
+    title: 'Lab & Chemicals',
+    desc: 'Industrial and medical laboratory equipment, high-grade reagents, and filtration systems.',
+    color: 'blue',
+  },
+  {
+    icon: '🦺',
+    title: 'PPE & Safety',
+    desc: 'Full range of personal protective equipment meeting international safety standards.',
+    color: 'orange',
+  },
+  {
+    icon: '⚙️',
+    title: 'Conveyor & Crushing',
+    desc: 'Conveyor belts, crusher equipment, rollers, pulleys, and bulk material handling systems.',
+    color: 'blue',
+  },
+];
+
+const reasons = [
+  {
+    icon: '🏆',
+    title: 'Proven Expertise',
+    desc: 'Our team brings deep knowledge across electrical, mechanical, and instrumentation disciplines — ensuring the right solution every time.',
+  },
+  {
+    icon: '🌍',
+    title: 'Local Presence',
+    desc: 'Based in Lubumbashi, we understand the DRC\'s industrial landscape and logistics — delivering faster and smarter than overseas suppliers.',
+  },
+  {
+    icon: '🤝',
+    title: 'End-to-End Service',
+    desc: 'From equipment supply to installation, commissioning, and ongoing maintenance — one partner for the full project lifecycle.',
+  },
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="COPAK General Trading — Industrial Solutions DRC" description="COPAK General Trading (CGT) delivers industrial solutions across the Democratic Republic of Congo. Electrical, mechanical, instrumentation, PPE, lab equipment and more.">
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-center overflow-hidden">
+
+    <!-- Hero photo background -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&h=1080&q=80"
+        alt=""
+        class="w-full h-full object-cover"
+        style="animation: subtle-zoom 25s ease-in-out infinite alternate;"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0d1b2a]/86 via-[#1a2838]/70 to-[#0d1b2a]/62"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0d1b2a]/78 via-transparent to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 py-28 lg:py-40 w-full">
+      <div class="max-w-4xl">
+        <div class="inline-flex items-center gap-2 bg-orange-700/15 border border-orange-400/30 rounded-full px-4 py-1.5 mb-8">
+          <span class="w-2 h-2 bg-orange-300 rounded-full animate-pulse"></span>
+          <span class="text-orange-200 text-xs font-semibold tracking-widest uppercase">Est. 2023 · Lubumbashi, DRC</span>
+        </div>
+
+        <h1 class="font-['Rajdhani'] font-black leading-none mb-8 select-none">
+          <span
+            class="block text-black text-[3.75rem] sm:text-[5rem] lg:text-[6.5rem] xl:text-[7.5rem] tracking-[-0.02em] drop-shadow-[0_4px_24px_rgba(0,0,0,0.65)]"
+            style="-webkit-text-stroke: 2px #c96a2b; paint-order: stroke fill;"
+          >COPAK</span>
+          <span class="block text-[2rem] sm:text-[2.8rem] lg:text-[3.5rem] xl:text-[4rem] tracking-[0.25em] sm:tracking-[0.4em] bg-gradient-to-r from-orange-300 via-amber-300 to-orange-400 bg-clip-text text-transparent leading-tight my-1">GENERAL</span>
+          <span class="inline-flex items-center">
+            <span class="bg-orange-600 px-4 sm:px-6 py-1 sm:py-2 text-[3.75rem] sm:text-[5rem] lg:text-[6.5rem] xl:text-[7.5rem] tracking-[-0.02em] text-black leading-none">TRADING</span>
+          </span>
+        </h1>
+
+        <div class="flex items-center gap-4 mb-5">
+          <div class="h-px w-20 bg-gradient-to-r from-orange-400 to-transparent"></div>
+          <span class="text-orange-200/80 text-xs tracking-[0.2em] uppercase font-medium">Industrial Solutions · DRC</span>
+        </div>
+
+        <p class="text-lg text-orange-100/90 font-medium mb-5 italic tracking-wide">
+          "Expertise at the Service of Your Success"
+        </p>
+        <p class="text-gray-300 text-lg leading-relaxed mb-10 max-w-3xl">
+          End-to-end industrial solutions — from supply of equipment to installation, maintenance, and technical support — engineered for the DRC's most demanding industries.
+        </p>
+
+        <div class="flex flex-wrap gap-4 mb-8">
+          <a href="/services" class="px-8 py-3.5 bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 text-white font-semibold text-sm rounded transition-all duration-200 shadow-lg shadow-orange-700/35 tracking-wide">
+            Explore Our Services
+          </a>
+          <a href="/contact" class="px-8 py-3.5 border border-white/25 hover:border-orange-400/60 bg-white/5 hover:bg-white/10 text-white hover:text-orange-200 font-semibold text-sm rounded transition-all duration-200 tracking-wide backdrop-blur-sm">
+            Contact Us
+          </a>
+        </div>
+
+        <div class="flex flex-wrap gap-2.5">
+          {[
+            'Electrical & Power',
+            'Mechanical Supply',
+            'Instrumentation',
+            'PPE & Safety',
+            'Lab & Chemicals',
+          ].map(item => (
+            <span class="px-3.5 py-1.5 rounded-full border border-white/20 bg-black/30 text-gray-200 text-xs tracking-wide">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-500 text-xs">
+      <span class="tracking-widest uppercase text-[10px]">Scroll</span>
+      <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="bg-[#0d1b2a] py-8 lg:py-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-orange-200/15 rounded-2xl border border-orange-200/20 bg-gradient-to-r from-[#b9682d] via-[#c77735] to-[#d18749] shadow-[0_18px_50px_rgba(180,101,38,0.14)] overflow-hidden">
+      {stats.map(s => (
+        <div class="flex items-center gap-4 px-6 lg:px-8 py-6 lg:py-7">
+          <span class="text-2xl opacity-80">{s.icon}</span>
+          <div>
+            <p class="text-3xl font-['Rajdhani'] font-black text-black leading-none">{s.value}</p>
+            <p class="text-black/65 text-xs font-bold tracking-[0.15em] uppercase mt-0.5">{s.label}</p>
+          </div>
+        </div>
+      ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE ARE -->
+  <section class="py-24 bg-[#0d1b2a]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center">
+
+        <!-- Photo -->
+        <div class="relative rounded-2xl overflow-hidden h-[400px] lg:h-[520px] shadow-2xl shadow-black/50 group">
+          <img
+            src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1200&h=900&q=80"
+            alt="Industrial facility — COPAK General Trading"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1508614999368-9260051292e5?auto=format&fit=crop&w=1200&h=900&q=80';"
+            style="animation: subtle-zoom 30s ease-in-out infinite alternate;"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/58 via-black/10 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <div class="flex items-center gap-3 bg-[#1e3550]/80 border border-orange-300/30 rounded-xl px-5 py-3.5 backdrop-blur-sm">
+              <span class="text-2xl">🏭</span>
+              <div>
+                <p class="text-white font-black text-sm leading-none">Congolese Industrial Excellence</p>
+                <p class="text-orange-100/85 text-xs mt-0.5">Proudly serving the DRC since 2023</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div>
+          <p class="text-orange-300 text-[11px] font-bold tracking-[0.2em] uppercase mb-3">Who We Are</p>
+          <h2 class="text-4xl xl:text-5xl font-['Rajdhani'] font-bold text-white mb-6 leading-tight">
+            Your Trusted <span class="text-orange-300">Industrial Partner</span> in the DRC
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-4 text-[15px]">
+            COPAK GENERAL TRADING (CGT) is a Congolese industrial solutions company delivering high-quality equipment, technical expertise, and customized support across multiple sectors.
+          </p>
+          <p class="text-gray-400 leading-relaxed mb-8 text-[15px]">
+            From electrical systems and mechanical components to laboratory equipment and PPE — we provide complete, tailored solutions designed for operational efficiency, safety, and long-term performance.
+          </p>
+          <div class="grid grid-cols-2 gap-3 mb-8">
+            {[
+              { label: 'Excellence', icon: '🏆' },
+              { label: 'Innovation', icon: '💡' },
+              { label: 'Adaptability', icon: '🔄' },
+              { label: 'Commitment', icon: '🤝' },
+            ].map(v => (
+              <div class="flex items-center gap-3 bg-[#1a2d40] border border-orange-400/20 rounded-xl px-4 py-3 hover:border-orange-400/50 transition-colors">
+                <span class="text-xl">{v.icon}</span>
+                <span class="text-white font-semibold text-sm">{v.label}</span>
+              </div>
+            ))}
+          </div>
+          <a href="/about" class="inline-flex items-center gap-2 text-orange-300 hover:text-orange-200 font-semibold text-sm transition-colors group">
+            Learn More About CGT
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DELIVER -->
+  <section class="py-24 bg-[#111c29] relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1560743173-567a3b5658b1?auto=format&fit=crop&w=1920&h=1080&q=80"
+        alt=""
+        class="w-full h-full object-cover"
+        style="animation: subtle-zoom 32s ease-in-out infinite alternate;"
+        onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&h=1080&q=80';"
+      />
+      <div class="absolute inset-0 bg-[#111c29]/86"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#111c29]/65 to-[#111c29]/90"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-14">
+        <p class="text-orange-300 text-[11px] font-bold tracking-[0.2em] uppercase mb-3">What We Deliver</p>
+        <h2 class="text-4xl xl:text-5xl font-['Rajdhani'] font-bold text-white mb-4">Industrial Solutions at Every Level</h2>
+        <p class="text-gray-400 max-w-xl mx-auto text-[15px]">Comprehensive expertise across 14+ categories — from supply and installation to long-term maintenance.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {highlights.map(h => (
+          <div class={`group relative rounded-2xl p-7 border transition-all duration-300 overflow-hidden ${h.color === 'orange' ? 'bg-[#1a2d40]/95 border-orange-400/20 hover:border-orange-400/45 hover:bg-[#1f3448]' : 'bg-[#162236]/95 border-blue-400/15 hover:border-blue-300/35 hover:bg-[#1b2d42]'}`}>
+            <div class={`absolute top-0 left-0 right-0 h-[3px] ${h.color === 'orange' ? 'bg-gradient-to-r from-orange-400 to-transparent' : 'bg-gradient-to-r from-blue-400 to-transparent'}`}></div>
+            <div class="text-3xl mb-4">{h.icon}</div>
+            <h3 class="text-white font-bold text-base mb-2">{h.title}</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">{h.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-12">
+        <a href="/services" class="inline-flex items-center gap-2 px-8 py-3.5 border border-orange-400/35 hover:border-orange-300 text-orange-200 hover:text-orange-100 font-semibold text-sm rounded-lg transition-all duration-200 tracking-wide">
+          View All 14+ Services
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE CGT -->
+  <section class="py-20 bg-[#0d1b2a]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-12">
+        <p class="text-orange-300 text-[11px] font-bold tracking-[0.2em] uppercase mb-3">Why Choose CGT</p>
+        <h2 class="text-4xl font-['Rajdhani'] font-bold text-white">The CGT Difference</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        {reasons.map(r => (
+          <div class="group text-center bg-gradient-to-b from-[#1a2d40] to-[#131f2d] border border-white/8 rounded-2xl p-8 hover:border-orange-400/30 transition-all duration-300">
+            <div class="w-16 h-16 rounded-2xl bg-orange-600/12 border border-orange-400/25 flex items-center justify-center text-3xl mx-auto mb-5 group-hover:bg-orange-600/20 transition-colors">
+              {r.icon}
+            </div>
+            <h3 class="text-white font-bold text-lg mb-3 font-['Rajdhani']">{r.title}</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">{r.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="relative py-24 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1920&h=600&q=75"
+        alt=""
+        class="w-full h-full object-cover"
+        style="animation: subtle-zoom 26s ease-in-out infinite alternate;"
+      />
+      <div class="absolute inset-0 bg-[#060e17]/76"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-orange-700/12 to-blue-900/18"></div>
+    </div>
+    <div class="absolute left-0 top-0 bottom-0 w-1 bg-orange-700/70 z-10"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-1 bg-orange-700/70 z-10"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-8 text-center">
+      <div class="inline-flex items-center gap-2 mb-6 rounded-full border border-orange-400/30 bg-orange-700/10 px-4 py-1.5">
+        <span class="h-1.5 w-1.5 rounded-full bg-orange-300 animate-pulse"></span>
+        <span class="text-[11px] font-bold tracking-[0.18em] text-orange-200 uppercase">Ready to Start?</span>
+      </div>
+      <h2 class="text-4xl xl:text-5xl font-['Rajdhani'] font-bold text-white mb-5 leading-tight">
+        Let's Build Something<br/><span class="text-orange-300">Exceptional Together</span>
+      </h2>
+      <p class="text-gray-300 mb-10 leading-relaxed text-[15px] max-w-xl mx-auto">
+        Whether you need industrial equipment, technical support, or a fully tailored solution — CGT is ready to deliver. Reach out today.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center gap-2 px-9 py-4 bg-orange-600 hover:bg-orange-500 text-white font-black rounded-xl transition-all duration-200 shadow-2xl shadow-orange-700/35 tracking-wide text-sm">
+          Get In Touch
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/services" class="inline-flex items-center gap-2 px-9 py-4 border border-white/25 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl transition-all duration-200 text-sm backdrop-blur-sm">
+          Our Services
+        </a>
+      </div>
+    </div>
+  </section>
+
 </Layout>

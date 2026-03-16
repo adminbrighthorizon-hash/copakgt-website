@@ -1,0 +1,281 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const contactDetails = [
+  {
+    icon: '📞',
+    label: 'Phone (DRC)',
+    value: '+243 89 798 0803',
+    href: 'tel:+243897980803',
+    color: 'orange',
+  },
+  {
+    icon: '📱',
+    label: 'Phone (South Africa)',
+    value: '+27 67 758 4446',
+    href: 'tel:+27677584446',
+    color: 'orange',
+  },
+  {
+    icon: '✉️',
+    label: 'Email',
+    value: 'info@copakgt.com',
+    href: 'mailto:info@copakgt.com',
+    color: 'blue',
+  },
+  {
+    icon: '🌐',
+    label: 'Website',
+    value: 'www.copakgt.com',
+    href: 'https://www.copakgt.com',
+    color: 'blue',
+  },
+];
+---
+
+<Layout title="Contact — COPAK General Trading" description="Get in touch with COPAK General Trading. Contact us for industrial solutions, quotes, and technical support in Lubumbashi, DRC.">
+
+  <!-- PAGE HERO -->
+  <section class="relative py-28 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1920&h=900&q=80"
+        alt=""
+        class="w-full h-full object-cover"
+        style="animation: subtle-zoom 23s ease-in-out infinite alternate;"
+        onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578496480157-697fc14d2e55?auto=format&fit=crop&w=1920&h=900&q=80';"
+      />
+      <div class="absolute inset-0 bg-[#0d1b2a]/78"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0d1b2a]/88 via-[#1a2838]/55 to-[#0d1b2a]/72"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+      <p class="text-orange-400 text-xs font-semibold tracking-widest uppercase mb-3">Reach Out</p>
+      <h1 class="text-5xl lg:text-6xl font-['Rajdhani'] font-bold text-white mb-6 leading-tight">
+        Get In <span class="text-orange-400">Touch</span>
+      </h1>
+      <p class="text-gray-300 text-lg max-w-2xl leading-relaxed">
+        Ready to discuss your industrial requirements? Our team is available to answer enquiries, provide quotes, and deliver customized solutions.
+      </p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTACT SECTION -->
+  <section class="py-20 max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-2 gap-16">
+
+      <!-- LEFT: Contact Info -->
+      <div>
+        <p class="text-orange-400 text-xs font-semibold tracking-widest uppercase mb-6">Contact Information</p>
+
+        <!-- Contact cards -->
+        <div class="space-y-4 mb-10">
+          {contactDetails.map(c => (
+            <a
+              href={c.href}
+              class={`flex items-center gap-5 bg-[#202d3f] border rounded-xl px-6 py-5 hover:shadow-lg transition-all duration-200 group ${c.color === 'blue' ? 'border-blue-500/20 hover:border-blue-500/40' : 'border-orange-500/20 hover:border-orange-500/40'}`}
+            >
+              <div class={`w-12 h-12 rounded-xl flex items-center justify-center text-xl shrink-0 ${c.color === 'blue' ? 'bg-blue-500/20' : 'bg-orange-500/20'}`}>
+                {c.icon}
+              </div>
+              <div>
+                <p class="text-gray-400 text-xs tracking-wider uppercase mb-0.5">{c.label}</p>
+                <p class={`font-medium text-sm ${c.color === 'blue' ? 'text-blue-300 group-hover:text-blue-200' : 'text-orange-300 group-hover:text-orange-200'} transition-colors`}>
+                  {c.value}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <!-- Address Block -->
+        <div class="bg-[#202d3f] border border-orange-500/20 rounded-2xl p-8 mb-8">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center text-xl shrink-0">🏢</div>
+            <div>
+              <p class="text-gray-400 text-xs tracking-wider uppercase mb-2">Physical Address</p>
+              <p class="text-white font-semibold text-sm mb-1">COPAK GENERAL TRADING (CGT)</p>
+              <p class="text-gray-300 text-sm leading-relaxed">
+                Av: 33 Tony Mwana<br/>
+                Q/ Golf Karavia Plateaux 3<br/>
+                C/ Annexe, Lubumbashi<br/>
+                Haut Katanga Province<br/>
+                <span class="text-orange-400 font-medium">Democratic Republic of Congo</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business Registration -->
+        <div class="bg-[#202d3f] border border-orange-500/20 rounded-2xl p-6">
+          <p class="text-orange-400 text-xs font-semibold tracking-widest uppercase mb-4">Business Registration</p>
+          <div class="grid grid-cols-2 gap-3">
+            {[
+              { label: 'RCCM', value: 'CD/LSH/RCCM/24-B-00695' },
+              { label: 'ID NAT', value: '05-S9502-N58278L' },
+              { label: 'Tax No.', value: 'A2408513F' },
+              { label: 'ARSP', value: '6209253671' },
+            ].map(r => (
+              <div class="border border-gray-700/40 rounded-lg p-3">
+                <p class="text-gray-500 text-[10px] tracking-wider uppercase mb-0.5">{r.label}</p>
+                <p class="text-gray-300 text-xs font-mono">{r.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Contact Form -->
+      <div>
+        <p class="text-orange-400 text-xs font-semibold tracking-widest uppercase mb-6">Send a Message</p>
+        <form
+          id="contact-form"
+          class="bg-[#202d3f] border border-orange-500/20 rounded-2xl p-8 space-y-5"
+          novalidate
+        >
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="name" class="block text-gray-300 text-xs font-semibold tracking-widest uppercase mb-2">Full Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Your name"
+                class="w-full bg-[#1f3a52] border border-gray-700/50 rounded-lg px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors"
+              />
+            </div>
+            <div>
+              <label for="company" class="block text-gray-300 text-xs font-semibold tracking-widest uppercase mb-2">Company</label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                placeholder="Your company"
+                class="w-full bg-[#0f1621] border border-gray-700/40 rounded-lg px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="email" class="block text-gray-300 text-xs font-semibold tracking-widest uppercase mb-2">Email Address *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="your@email.com"
+              class="w-full bg-[#0f1621] border border-gray-700/40 rounded-lg px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors"
+            />
+          </div>
+
+          <div>
+            <label for="phone" class="block text-gray-300 text-xs font-semibold tracking-widest uppercase mb-2">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="+243 ..."
+              class="w-full bg-[#0f1621] border border-gray-700/40 rounded-lg px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors"
+            />
+          </div>
+
+          <div>
+            <label for="service" class="block text-gray-300 text-xs font-semibold tracking-widest uppercase mb-2">Service of Interest</label>
+            <select
+              id="service"
+              name="service"
+              class="w-full bg-[#0f1621] border border-gray-700/40 rounded-lg px-4 py-3 text-sm text-gray-300 focus:outline-none focus:border-orange-500 transition-colors appearance-none"
+            >
+              <option value="">Select a service category...</option>
+              <option>Electrical Equipment</option>
+              <option>Pumps & Valves</option>
+              <option>Industrial Instrumentation</option>
+              <option>Conveyor Belt Systems</option>
+              <option>Electrowinning Equipment</option>
+              <option>Geomembrane Solutions</option>
+              <option>Laboratory Equipment</option>
+              <option>Personal Protective Equipment</option>
+              <option>Mechanical & HDPE Welding</option>
+              <option>Crusher Equipment</option>
+              <option>Other Industrial Products</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-gray-300 text-xs font-semibold tracking-widest uppercase mb-2">Message *</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              placeholder="Describe your requirements, or ask us anything..."
+              class="w-full bg-[#0f1621] border border-gray-700/40 rounded-lg px-4 py-3 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-orange-500 transition-colors resize-none"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="w-full py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-400 hover:to-orange-500 text-white font-semibold rounded-lg transition-all duration-200 shadow-lg shadow-orange-600/40 tracking-wide text-sm"
+          >
+            Send Message
+          </button>
+
+          <!-- Success / Error messages -->
+          <div id="form-success" class="hidden text-center py-3 text-green-300 text-sm bg-green-600/20 border border-green-500/30 rounded-lg">
+            ✅ Message sent! We'll be in touch shortly.
+          </div>
+          <div id="form-error" class="hidden text-center py-3 text-red-300 text-sm bg-red-600/20 border border-red-500/30 rounded-lg">
+            ❌ Please fill in all required fields.
+          </div>
+        </form>
+
+        <p class="text-gray-400 text-xs text-center mt-4">
+          Your information is kept confidential and will only be used to respond to your enquiry.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVAILABILITY BANNER -->
+  <section class="py-12 bg-[#2a4563] border-t border-orange-500/15">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="text-white font-['Rajdhani'] font-bold text-xl mb-1">Ready to Deliver Industrial Solutions</h3>
+        <p class="text-gray-400 text-sm">Serving clients across Lubumbashi and the wider DRC. Available for on-site consultations and project support.</p>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></span>
+        <span class="text-green-300 text-sm font-medium">Available for Projects</span>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const successMsg = document.getElementById('form-success');
+  const errorMsg = document.getElementById('form-error');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = (document.getElementById('name') as HTMLInputElement)?.value.trim();
+    const email = (document.getElementById('email') as HTMLInputElement)?.value.trim();
+    const message = (document.getElementById('message') as HTMLTextAreaElement)?.value.trim();
+
+    successMsg?.classList.add('hidden');
+    errorMsg?.classList.add('hidden');
+
+    if (!name || !email || !message) {
+      errorMsg?.classList.remove('hidden');
+      return;
+    }
+
+    // On successful validation, show success (backend integration can be added later)
+    successMsg?.classList.remove('hidden');
+    form.reset();
+  });
+</script>

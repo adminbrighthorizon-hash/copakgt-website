@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* ── Animations ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); }
+  25% { transform: translateY(-25px) translateX(10px) rotate(90deg) scale(1.05); }
+  50% { transform: translateY(-40px) translateX(0px) rotate(180deg) scale(1); }
+  75% { transform: translateY(-20px) translateX(-15px) rotate(270deg) scale(0.95); }
+  100% { transform: translateY(0px) translateX(0px) rotate(360deg) scale(1); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(-10px) translateX(0px) rotate(0deg) scale(1); }
+  25% { transform: translateY(-35px) translateX(-12px) rotate(-90deg) scale(0.98); }
+  50% { transform: translateY(-50px) translateX(0px) rotate(-180deg) scale(1); }
+  75% { transform: translateY(-25px) translateX(12px) rotate(-270deg) scale(1.02); }
+  100% { transform: translateY(-10px) translateX(0px) rotate(-360deg) scale(1); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.25; filter: blur(60px); }
+  50% { opacity: 0.5; filter: blur(40px); }
+}
+
+@keyframes slide-bg {
+  0% { background-position: -100% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: -100% 0%; }
+}
+
+@keyframes rotate-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes arc-rotate {
+  0% { transform: rotate(0deg) translateZ(0); }
+  100% { transform: rotate(360deg) translateZ(0); }
+}
+
+@keyframes subtle-zoom {
+  0% { transform: scale(1) translateX(0px); }
+  100% { transform: scale(1.08) translateX(-10px); }
+}
+
+/* ── Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #1a2838;
+  color: #e5e7eb;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #1a2838; }
+::-webkit-scrollbar-thumb { background: #ed8936; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #ff9d44; }
+
+/* ── Selection ── */
+::selection { background-color: #c2410c40; color: #fff; }
+
+/* ── Focus ring ── */
+:focus-visible { outline: 2px solid #ea580c; outline-offset: 2px; }
+
+/* ── Utility: hide scrollbar on nav overflow ── */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }

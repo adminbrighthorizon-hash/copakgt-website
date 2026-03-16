@@ -1,23 +1,173 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title = 'COPAK General Trading', description = 'Industrial solutions provider in the Democratic Republic of Congo.' } = Astro.props;
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+import '../styles/global.css';
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/partners', label: 'Partners' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title} | CGT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-[#1a2838] text-gray-200 font-['Inter'] antialiased">
+
+    <!-- NAV -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#1f3a52]/95 backdrop-blur-md border-b border-orange-500/25 shadow-lg shadow-orange-600/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-18 py-4">
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-sm bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center font-['Rajdhani'] font-bold text-white text-lg tracking-wider shadow-lg shadow-orange-600/40">
+            CGT
+          </div>
+          <div class="hidden sm:block leading-tight">
+            <p class="text-white font-semibold text-sm tracking-wide">COPAK GENERAL</p>
+            <p class="text-orange-400 text-xs tracking-[0.2em] uppercase font-medium">Trading</p>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-1">
+          {navLinks.map(link => (
+            <a
+              href={link.href}
+              class={`px-4 py-2 rounded text-sm font-medium transition-all duration-200 ${
+                currentPath === link.href
+                  ? 'text-orange-300 bg-orange-600/20 border border-orange-500/40'
+                  : 'text-gray-300 hover:text-orange-400 hover:bg-orange-600/10'
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <!-- Mobile menu toggle -->
+        <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-orange-400 transition-colors p-2 rounded" aria-label="Toggle menu">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav Dropdown -->
+      <div id="mobile-menu" class="hidden md:hidden bg-[#1a2838] border-t border-orange-500/20 px-6 pb-4">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class={`block py-3 text-sm font-medium border-b border-gray-700/40 transition-colors ${
+              currentPath === link.href ? 'text-orange-400' : 'text-gray-300 hover:text-orange-400'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <main class="pt-[70px]">
+      <slot />
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#152030] border-t border-orange-500/15 mt-20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-sm bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center font-['Rajdhani'] font-bold text-white text-lg">CGT</div>
+            <div>
+              <p class="text-white font-semibold text-sm">COPAK GENERAL TRADING</p>
+              <p class="text-orange-400 text-xs tracking-widest uppercase">Industrial Solutions</p>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed">Expertise at the Service of Your Success. DRC's trusted industrial partner since 2023.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-orange-400 text-xs font-semibold tracking-widest uppercase mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            {navLinks.map(link => (
+              <li><a href={link.href} class="text-gray-400 hover:text-orange-400 text-sm transition-colors">{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h4 class="text-orange-400 text-xs font-semibold tracking-widest uppercase mb-4">Core Services</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li>Electrical Equipment</li>
+            <li>Pumps & Valves</li>
+            <li>Industrial Instrumentation</li>
+            <li>Conveyor Belt Systems</li>
+            <li>PPE & Safety</li>
+            <li>Laboratory Equipment</li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-orange-400 text-xs font-semibold tracking-widest uppercase mb-4">Contact</h4>
+          <ul class="space-y-3 text-sm text-gray-400">
+            <li class="flex items-start gap-2">
+              <span class="text-orange-500 mt-0.5">&#9679;</span>
+              <span>Av: 33 Tony Mwana, Lubumbashi, DRC</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-orange-500 mt-0.5">&#9679;</span>
+              <span>+243 89 798 0803</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-orange-500 mt-0.5">&#9679;</span>
+              <a href="mailto:info@copakgt.com" class="hover:text-orange-400 transition-colors">info@copakgt.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800/40 py-5 text-center text-gray-600 text-xs">
+        &copy; {new Date().getFullYear()} COPAK General Trading (CGT). All rights reserved. &nbsp;|&nbsp; Lubumbashi, DRC
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+      btn?.addEventListener('click', () => {
+        menu?.classList.toggle('hidden');
+        iconOpen?.classList.toggle('hidden');
+        iconClose?.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>
