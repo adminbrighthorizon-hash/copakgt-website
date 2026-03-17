@@ -2,8 +2,7 @@ name: Deploy Preview
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -28,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Astro
+      - name: Build Astro site
         run: npm run build
 
       - name: Upload artifact
