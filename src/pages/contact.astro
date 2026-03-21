@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import SiteShell from '../components/SiteShell.astro';
 import { site } from '../data/site';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout
@@ -32,7 +33,7 @@ import { site } from '../data/site';
 							<h2>Ready to help a child with a disability or from an underprivileged background?</h2>
 							<p>Your donation directly funds inclusive education, assistive devices, therapy, and family support across Africa.</p>
 						</div>
-						<a class="button button-primary" href="/donate">Go to Donation Page</a>
+						<a class="button button-primary" href={`${base}/donate`}>Go to Donation Page</a>
 					</div>
 				</div>
 			</section>

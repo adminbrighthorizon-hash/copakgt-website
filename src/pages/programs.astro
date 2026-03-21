@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import SiteShell from '../components/SiteShell.astro';
 import { site } from '../data/site';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout
@@ -47,7 +48,7 @@ import { site } from '../data/site';
 					<div class="cta-panel">
 						<h2>Support a program today.</h2>
 						<p>Your contribution helps deliver measurable outcomes for children and families across Africa.</p>
-						<a href="/donate" class="button button-primary">Donate Now</a>
+						<a href={`${base}/donate`} class="button button-primary">Donate Now</a>
 					</div>
 				</div>
 			</section>

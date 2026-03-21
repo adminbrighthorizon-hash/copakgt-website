@@ -7,12 +7,13 @@ interface Props {
 
 const { activePath = '/' } = Astro.props;
 const currentYear = new Date().getFullYear();
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <div class="site-shell">
 	<header class="site-header">
 		<div class="header-inner section">
-			<a class="brand-lockup" href="/" aria-label={site.name}>
+			<a class="brand-lockup" href={`${base}/`} aria-label={site.name}>
 				<span class="brand-mark" aria-hidden="true">A12</span>
 				<span class="brand-name">{site.name}</span>
 			</a>
@@ -23,9 +24,9 @@ const currentYear = new Date().getFullYear();
 
 			<nav class="nav-links" aria-label="Primary">
 				{site.nav.map((item) => (
-					<a class={item.href === activePath ? 'active' : undefined} href={item.href}>{item.label}</a>
+					<a class={item.href === activePath ? 'active' : undefined} href={`${base}${item.href}`}>{item.label}</a>
 				))}
-				<a class="nav-cta" href="/donate">Give Now</a>
+				<a class="nav-cta" href={`${base}/donate`}>Give Now</a>
 			</nav>
 		</div>
 	</header>
@@ -36,7 +37,7 @@ const currentYear = new Date().getFullYear();
 		<div class="footer-inner section">
 			<div class="footer-grid">
 				<div class="footer-brand">
-					<a class="brand-lockup" href="/" aria-label={site.name}>
+					<a class="brand-lockup" href={`${base}/`} aria-label={site.name}>
 						<span class="brand-mark" aria-hidden="true">A12</span>
 						<span class="brand-name">{site.name}</span>
 					</a>
@@ -47,7 +48,7 @@ const currentYear = new Date().getFullYear();
 					<h4>Quick Links</h4>
 					<ul>
 						{site.nav.map((item) => (
-							<li><a href={item.href}>{item.label}</a></li>
+							<li><a href={`${base}${item.href}`}>{item.label}</a></li>
 						))}
 					</ul>
 				</div>
@@ -56,7 +57,7 @@ const currentYear = new Date().getFullYear();
 					<h4>Programs</h4>
 					<ul>
 						{site.programs.map((p) => (
-							<li><a href="/programs">{p.title}</a></li>
+							<li><a href={`${base}/programs`}>{p.title}</a></li>
 						))}
 					</ul>
 				</div>
@@ -75,8 +76,8 @@ const currentYear = new Date().getFullYear();
 			<div class="footer-bottom">
 				<p>&copy; {currentYear} {site.name}. All rights reserved.</p>
 				<div class="footer-legal">
-					<a href="/privacy">Privacy Policy</a>
-					<a href="/terms">Terms of Use</a>
+					<a href={`${base}/privacy`}>Privacy Policy</a>
+					<a href={`${base}/terms`}>Terms of Use</a>
 				</div>
 			</div>
 		</div>

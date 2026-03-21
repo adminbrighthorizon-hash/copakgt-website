@@ -1,6 +1,7 @@
 ---
 import SiteShell from './SiteShell.astro';
 import { site } from '../data/site';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <SiteShell activePath="/">
@@ -16,8 +17,8 @@ import { site } from '../data/site';
 				<h1>{site.headline}</h1>
 				<p class="hero-sub">{site.subheadline}</p>
 				<div class="hero-actions">
-					<a class="button button-primary hero-btn" href="/donate">Donate Now</a>
-					<a class="button button-secondary hero-btn-outline" href="/about">Learn More</a>
+					<a class="button button-primary hero-btn" href={`${base}/donate`}>Donate Now</a>
+					<a class="button button-secondary hero-btn-outline" href={`${base}/about`}>Learn More</a>
 				</div>
 			</div>
 		</section>
@@ -48,7 +49,7 @@ import { site } from '../data/site';
 					<p class="eyebrow">Our Mission</p>
 					<h2>Locally led development that transforms lives.</h2>
 					<p class="lede">{site.mission}</p>
-					<a class="button button-secondary" href="/about">About Our Approach</a>
+					<a class="button button-secondary" href={`${base}/about`}>About Our Approach</a>
 				</div>
 				<div class="mission-image">
 					<img src={site.gallery[0].src} alt={site.gallery[0].alt} loading="lazy" decoding="async" />
@@ -96,7 +97,7 @@ import { site } from '../data/site';
 					))}
 				</div>
 				<div class="programs-cta">
-					<a class="button button-primary" href="/programs">View All Programs</a>
+					<a class="button button-primary" href={`${base}/programs`}>View All Programs</a>
 				</div>
 			</div>
 		</section>
@@ -181,9 +182,9 @@ import { site } from '../data/site';
 					<p>Whether you are a donor, partner, or volunteer, there is a place for you in this work. Together we can reach more children, strengthen more families, and create lasting change.</p>
 				</div>
 				<div class="cta-actions">
-					<a class="button button-primary" href="/donate">Make a Donation</a>
+					<a class="button button-primary" href={`${base}/donate`}>Make a Donation</a>
 					<a class="button button-secondary" href={`mailto:${site.contacts.partnerships}`}>Partner With Us</a>
-					<a class="button button-secondary" href="/contact">Contact Us</a>
+					<a class="button button-secondary" href={`${base}/contact`}>Contact Us</a>
 				</div>
 			</div>
 		</section>
