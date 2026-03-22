@@ -481,6 +481,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		border-radius: var(--radius-md);
 		overflow: hidden;
 		cursor: pointer;
+		isolation: isolate;
 	}
 
 	.gallery-wide {
@@ -493,6 +494,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		height: 280px;
 		object-fit: cover;
 		transition: transform 0.4s ease;
+	}
+
+	.gallery-item::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(180deg, rgba(8, 12, 16, 0.06) 0%, rgba(8, 12, 16, 0.18) 38%, rgba(8, 12, 16, 0.78) 100%);
+		pointer-events: none;
+		z-index: 1;
 	}
 
 	.gallery-wide img {
@@ -508,26 +518,33 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		bottom: 0;
 		left: 0;
 		right: 0;
-		padding: 2.5rem 1.25rem 1.25rem;
-		background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+		z-index: 2;
+		padding: 3.25rem 1.25rem 1.2rem;
+		background: linear-gradient(transparent, rgba(0, 0, 0, 0.24));
 		color: #fff;
-		opacity: 0;
-		transition: opacity 0.3s ease;
+		opacity: 1;
+		transition: transform 0.3s ease;
 	}
 
 	.gallery-item:hover figcaption {
-		opacity: 1;
+		transform: translateY(-4px);
 	}
 
 	.gallery-item figcaption strong {
 		display: block;
-		font-size: 1rem;
-		margin-bottom: 0.25rem;
+		font-size: 1.05rem;
+		line-height: 1.2;
+		margin-bottom: 0.35rem;
+		text-shadow: 0 2px 14px rgba(0, 0, 0, 0.48);
 	}
 
 	.gallery-item figcaption span {
-		font-size: 0.85rem;
-		color: rgba(255, 255, 255, 0.8);
+		display: block;
+		max-width: 30ch;
+		font-size: 0.88rem;
+		line-height: 1.45;
+		color: rgba(255, 255, 255, 0.92);
+		text-shadow: 0 2px 14px rgba(0, 0, 0, 0.42);
 	}
 
 	/* ─── Impact ─── */
