@@ -129,7 +129,21 @@ Confirm:
 
 ### Branch behavior
 - Push to `dev` runs CI build automatically via `.github/workflows/dev-ci.yml`
-- Push to `main` also deploys to GitHub Pages via `.github/workflows/deploy-github-pages.yml`
+- Push to `dev` deploys to GitHub Pages via `.github/workflows/deploy-github-pages.yml`
+
+## Cloudflare Deployment (Simplified)
+
+Cloudflare deployment is handled only by **Cloudflare Pages Git integration**.
+
+### Source of truth
+- Branch: `main`
+- Build command: `npm run build`
+- Build output directory: `dist`
+
+### Important
+- Use the Pages URL (for example `https://copakgt-website.pages.dev`) for validation.
+- Do not use a Workers URL (`*.workers.dev`) for this static Astro site.
+- No GitHub Action is needed for Cloudflare deployment.
 
 ### GitHub Pages setting required
 In your GitHub repository:
