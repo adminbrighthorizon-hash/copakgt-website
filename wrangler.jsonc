@@ -3,11 +3,6 @@
 	"compatibility_flags": ["global_fetch_strictly_public"],
 	"name": "copakgt-website",
 	"type": "javascript",
-	"build": {
-		"command": "npm run build",
-		"cwd": "./",
-		"watch_paths": ["src/**/*.ts", "src/**/*.astro"]
-	},
 	"observability": {
 		"enabled": true
 	}
