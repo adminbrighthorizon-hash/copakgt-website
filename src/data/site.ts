@@ -46,6 +46,22 @@ export const site = {
 	],
 	serviceCards: [
 		{
+			title: 'Laboratory',
+			description: 'Industrial and medical laboratory equipment.',
+			images: [
+				`${base}/photos/company-profile/labs2.jpg`,
+				`${base}/photos/company-profile/labs1.jpg`,
+			],
+		},
+		{
+			title: 'Water Treatment',
+			description: 'Public and industrial water treatment: Drinking Water, Utility Water — Boilers, Cooling Towers, Chillers, Process Water, Waste Water — Effluent & Sewage.',
+			images: [
+				`${base}/photos/company-profile/water-treat2.jpg`,
+				`${base}/photos/company-profile/water-treat1.jpg`,
+			],
+		},
+		{
 			title: 'General Products',
 			description: 'Industrial tools, construction materials, and hardware supplies.',
 			images: [`${base}/photos/company-profile/general-products.jpg`],
@@ -61,9 +77,12 @@ export const site = {
 			images: [`${base}/photos/company-profile/geomembrane1.jpg`],
 		},
 		{
-			title: 'Welding',
-			description: 'Industrial welding sparks, pipe welding HDPE, and metal fabrication workshops.',
-			images: [`${base}/photos/company-profile/welding.jpg`],
+			title: 'Mechanical Welding and HDPE PIPE Welding',
+			description: 'Industrial metal fabrication, mechanical welding, and HDPE pipe welding services.',
+			images: [
+				`${base}/photos/company-profile/hdpe-pipes.jpg`,
+				`${base}/photos/company-profile/welding1.jpg`,
+			],
 		},
 		{
 			title: 'Plates / Pipes',
@@ -72,11 +91,6 @@ export const site = {
 				`${base}/photos/company-profile/plates1.jpg`,
 				`${base}/photos/company-profile/pipes1.jpg`,
 			],
-		},
-		{
-			title: 'PPE',
-			description: 'Construction worker safety gear and industrial protective equipment.',
-			images: [`${base}/photos/company-profile/ppe.jpg`],
 		},
 		{
 			title: 'Conveyor Belts',
@@ -98,15 +112,7 @@ export const site = {
 			description: 'Industrial valves, chemical pumps, and water pump systems.',
 			images: [
 				`${base}/photos/company-profile/valves.jpg`,
-				`${base}/photos/company-profile/pump1.jpg`,
-			],
-		},
-		{
-			title: 'Laboratory',
-			description: 'Industrial and medical laboratory equipment and consumables.',
-			images: [
-				`${base}/photos/company-profile/labs2.jpg`,
-				`${base}/photos/company-profile/labs1.jpg`,
+				`${base}/photos/company-profile/pums.avif`,
 			],
 		},
 		{
@@ -119,6 +125,15 @@ export const site = {
 		{
 			category: 'Laboratory',
 			items: ['Industrial laboratory equipment', 'Medical laboratory equipment'],
+		},
+		{
+			category: 'Water Treatment',
+			items: [
+				'Drinking Water treatment',
+				'Utility Water — Boilers, Cooling Towers, Chillers',
+				'Process Water treatment',
+				'Waste Water — Effluent & Sewage',
+			],
 		},
 		{
 			category: 'Pumps',
@@ -152,15 +167,7 @@ export const site = {
 				'Reducers, rollers, and drums',
 			],
 		},
-		{
-			category: 'PPE',
-			items: [
-				'Safety helmets and boots',
-				'Safety shoes and work clothing',
-				'Gloves, masks, and protective glasses',
-				'Rain suits, work lamps, and belts',
-			],
-		},
+
 		{
 			category: 'Plates, Pipes & Electrowinning',
 			items: ['Metal plates in various sizes', 'Stainless steel 316L plates and pipes', 'Cathodes, anodes, demister balls, and edge strips'],
