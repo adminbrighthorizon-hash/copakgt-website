@@ -58,7 +58,6 @@ export const site = {
 			description: 'Public and industrial water treatment: Drinking Water, Utility Water — Boilers, Cooling Towers, Chillers, Process Water, Waste Water — Effluent & Sewage.',
 			images: [
 				`${base}/photos/company-profile/water-treat2.jpg`,
-				`${base}/photos/company-profile/water-treat1.jpg`,
 			],
 		},
 		{
@@ -80,8 +79,8 @@ export const site = {
 			title: 'Mechanical Welding and HDPE PIPE Welding',
 			description: 'Industrial metal fabrication, mechanical welding, and HDPE pipe welding services.',
 			images: [
+				`${base}/photos/company-profile/weldingf.avif`,
 				`${base}/photos/company-profile/hdpe-pipes.jpg`,
-				`${base}/photos/company-profile/welding1.jpg`,
 			],
 		},
 		{
