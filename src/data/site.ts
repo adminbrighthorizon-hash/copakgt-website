@@ -112,7 +112,7 @@ export const site = {
 		{
 			title: 'Filtration',
 			description: 'Industrial filtration systems and water filtration plant support.',
-			images: [`${base}/photos/company-profile/filtration.jpg`],
+			images: [`${base}/photos/company-profile/filtration1.jpg`],
 		},
 	],
 	services: [
