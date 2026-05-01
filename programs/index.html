@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-sckkx6r4> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/copakgt-website/favicon.png"><link rel="icon" href="/copakgt-website/favicon.png"><meta name="generator" content="Astro v6.0.8"><meta name="description" content="Legacy route maintained for services overview."><meta name="theme-color" content="#1a1a1a"><!-- Open Graph --><meta property="og:type" content="website"><meta property="og:title" content="Services Overview | COPAK GENERAL TRADING"><meta property="og:description" content="Legacy route maintained for services overview."><meta property="og:image" content="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&#38;fit=crop&#38;crop=faces&#38;w=1600&#38;q=90"><!-- Google Fonts: Inter + Playfair Display --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet"><title>Services Overview | COPAK GENERAL TRADING</title><link rel="stylesheet" href="/copakgt-website/_astro/SiteShell.FTib-gr6.css">
+<style>.page[data-astro-cid-iru3ew3w]{padding:2rem 0}.card[data-astro-cid-iru3ew3w]{padding:1.2rem}.card[data-astro-cid-iru3ew3w] p[data-astro-cid-iru3ew3w]{color:var(--muted)}.btn[data-astro-cid-iru3ew3w]{display:inline-block;text-decoration:none;padding:.58rem .95rem;border-radius:.65rem;font-size:.88rem;font-weight:600;background:linear-gradient(135deg,var(--accent),var(--accent-soft));color:#fff;margin-top:.7rem}
+</style></head> <body data-astro-cid-sckkx6r4>  <div class="site-shell" data-astro-cid-hi7a2ado> <div class="industrial-bg" aria-hidden="true" data-astro-cid-ewwdml76> <div class="layer grid" data-astro-cid-ewwdml76></div> <div class="layer pipes" data-astro-cid-ewwdml76></div> <div class="layer rings" data-astro-cid-ewwdml76> <span class="gear gear-a" data-astro-cid-ewwdml76></span> <span class="gear gear-b" data-astro-cid-ewwdml76></span> <span class="gear gear-c" data-astro-cid-ewwdml76></span> <span class="ring ring-a" data-astro-cid-ewwdml76></span> <span class="ring ring-b" data-astro-cid-ewwdml76></span> </div> <div class="layer machinery" data-astro-cid-ewwdml76> <span class="arm arm-a" data-astro-cid-ewwdml76></span> <span class="arm arm-b" data-astro-cid-ewwdml76></span> <span class="nut nut-a" data-astro-cid-ewwdml76></span> <span class="nut nut-b" data-astro-cid-ewwdml76></span> <span class="glow glow-a" data-astro-cid-ewwdml76></span> <span class="glow glow-b" data-astro-cid-ewwdml76></span> </div> <div class="layer particles" data-astro-cid-ewwdml76></div> </div> <script>
+	(() => {
+		const root = document.documentElement;
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		if (reducedMotion) {
+			root.style.setProperty('--parallax-x', '0px');
+			root.style.setProperty('--parallax-y', '0px');
+			root.style.setProperty('--scroll-shift', '0px');
+			return;
+		}
+
+		let targetX = 0;
+		let targetY = 0;
+		let currentX = 0;
+		let currentY = 0;
+		let ticking = false;
+
+		const animate = () => {
+			currentX += (targetX - currentX) * 0.07;
+			currentY += (targetY - currentY) * 0.07;
+			root.style.setProperty('--parallax-x', `${currentX.toFixed(2)}px`);
+			root.style.setProperty('--parallax-y', `${currentY.toFixed(2)}px`);
+			if (Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05) {
+				requestAnimationFrame(animate);
+			} else {
+				ticking = false;
+			}
+		};
+
+		window.addEventListener('pointermove', (event) => {
+			const xRatio = event.clientX / window.innerWidth - 0.5;
+			const yRatio = event.clientY / window.innerHeight - 0.5;
+			targetX = xRatio * 18;
+			targetY = yRatio * 14;
+			if (!ticking) {
+				ticking = true;
+				requestAnimationFrame(animate);
+			}
+		});
+
+		window.addEventListener(
+			'scroll',
+			() => {
+				const shift = Math.min(window.scrollY * 0.05, 32);
+				root.style.setProperty('--scroll-shift', `${shift.toFixed(2)}px`);
+			},
+			{ passive: true }
+		);
+	})();
+</script> <header class="site-header" data-astro-cid-hi7a2ado> <div class="header-inner section" data-astro-cid-hi7a2ado> <a class="brand-lockup" href="/copakgt-website/" aria-label="COPAK GENERAL TRADING" data-astro-cid-hi7a2ado> <img class="brand-logo" src="/copakgt-website/favicon.png" alt="COPAK GENERAL TRADING" loading="eager" decoding="async" data-astro-cid-hi7a2ado> </a> <button class="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false" data-astro-cid-hi7a2ado> <span class="hamburger" data-astro-cid-hi7a2ado></span> </button> <nav class="nav-links" aria-label="Primary" data-astro-cid-hi7a2ado> <a href="/copakgt-website/" data-astro-cid-hi7a2ado> Home </a><a href="/copakgt-website/about" data-astro-cid-hi7a2ado> Company Profile </a><a class="active" href="/copakgt-website/services" data-astro-cid-hi7a2ado> Products &amp; Services </a><a href="/copakgt-website/impact" data-astro-cid-hi7a2ado> Our Strength </a><a href="/copakgt-website/contact" data-astro-cid-hi7a2ado> Contact </a> </nav> </div> </header>  <main class="section page" data-astro-cid-iru3ew3w> <section class="panel card" data-astro-cid-iru3ew3w> <p class="eyebrow" data-astro-cid-iru3ew3w>Route Compatibility</p> <h1 data-astro-cid-iru3ew3w>Products & Services</h1> <p data-astro-cid-iru3ew3w>
+This route is maintained for compatibility. View the complete and updated portfolio on our dedicated
+					services page.
+</p> <a class="btn" href="/copakgt-website/services" data-astro-cid-iru3ew3w>Open Full Services Portfolio</a> </section> </main>  <footer class="site-footer" data-astro-cid-hi7a2ado> <div class="footer-inner section" data-astro-cid-hi7a2ado> <div class="footer-grid" data-astro-cid-hi7a2ado> <div class="footer-brand" data-astro-cid-hi7a2ado> <a class="brand-lockup footer-brand-lockup" href="/copakgt-website/" aria-label="COPAK GENERAL TRADING" data-astro-cid-hi7a2ado> <img class="brand-logo" src="/copakgt-website/favicon.png" alt="COPAK GENERAL TRADING" loading="lazy" decoding="async" data-astro-cid-hi7a2ado> </a> <p class="footer-mission" data-astro-cid-hi7a2ado>COPAK GENERAL TRADING delivers complete solutions from supply and installation to maintenance across mining, electrical, mechanical, instrumentation, laboratory, and industrial support sectors.</p> </div> <div class="footer-col" data-astro-cid-hi7a2ado> <h4 data-astro-cid-hi7a2ado>Quick Links</h4> <ul data-astro-cid-hi7a2ado> <li data-astro-cid-hi7a2ado><a href="/copakgt-website/" data-astro-cid-hi7a2ado>Home</a></li><li data-astro-cid-hi7a2ado><a href="/copakgt-website/about" data-astro-cid-hi7a2ado>Company Profile</a></li><li data-astro-cid-hi7a2ado><a href="/copakgt-website/services" data-astro-cid-hi7a2ado>Products &amp; Services</a></li><li data-astro-cid-hi7a2ado><a href="/copakgt-website/impact" data-astro-cid-hi7a2ado>Our Strength</a></li><li data-astro-cid-hi7a2ado><a href="/copakgt-website/contact" data-astro-cid-hi7a2ado>Contact</a></li> </ul> </div> <div class="footer-col" data-astro-cid-hi7a2ado> <h4 data-astro-cid-hi7a2ado>Core Values</h4> <ul data-astro-cid-hi7a2ado> <li data-astro-cid-hi7a2ado>Excellence</li><li data-astro-cid-hi7a2ado>Innovation</li><li data-astro-cid-hi7a2ado>Adaptability</li><li data-astro-cid-hi7a2ado>Commitment</li> </ul> </div> <div class="footer-col" data-astro-cid-hi7a2ado> <h4 data-astro-cid-hi7a2ado>Contact</h4> <ul data-astro-cid-hi7a2ado> <li data-astro-cid-hi7a2ado><a href="mailto:info@copakgt.com" data-astro-cid-hi7a2ado>info@copakgt.com</a></li> <li data-astro-cid-hi7a2ado>+243 89 798 0803</li><li data-astro-cid-hi7a2ado>+27 67 758 4446</li> <li data-astro-cid-hi7a2ado>Av: 33 Tony Mwana Q/ Golf Karavia plateaux 3 C/ Annexe, Ville de Lubumbashi, Province du Haut Katanga, RDC.</li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-hi7a2ado> <p data-astro-cid-hi7a2ado>&copy; 2026 COPAK GENERAL TRADING. All rights reserved. | RCCM: CD/LSH/RCCM/24-B-00695</p> <div class="footer-legal" data-astro-cid-hi7a2ado> <span data-astro-cid-hi7a2ado>ID NAT: 05-S9502-N58278L</span> <span data-astro-cid-hi7a2ado>ARSP: 6209253671</span> </div> </div> </div> </footer> </div> <script type="module">const e=document.querySelector(".mobile-toggle"),t=document.querySelector(".nav-links");e&&t&&e.addEventListener("click",()=>{const n=e.getAttribute("aria-expanded")==="true";e.setAttribute("aria-expanded",String(!n)),t.classList.toggle("open")});</script> </body></html>
