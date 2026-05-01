@@ -1,9 +1,7 @@
 {
 	"compatibility_date": "2026-05-01",
-	"compatibility_flags": ["global_fetch_strictly_public"],
 	"name": "copakgt-website",
-	"type": "javascript",
-	"observability": {
-		"enabled": true
+	"assets": {
+		"directory": "./dist"
 	}
 }
