@@ -48,62 +48,71 @@ export const site = {
 		{
 			title: 'General Products',
 			description: 'Industrial tools, construction materials, and hardware supplies.',
-			image: `${base}/photos/company-profile/general-products.jpg`,
+			images: [`${base}/photos/company-profile/general-products.jpg`],
 		},
 		{
 			title: 'Crusher / Mining',
 			description: 'Industrial crusher systems, mining equipment, and rock crushing plant support.',
-			image: `${base}/photos/company-profile/crusher-mining.jpg`,
+			images: [`${base}/photos/company-profile/crusher-mining.jpg`],
 		},
 		{
 			title: 'Geomembrane',
 			description: 'Geomembrane installation, repair, and HDPE liner applications.',
-			image: `${base}/photos/company-profile/geomembrane.jpg`,
+			images: [`${base}/photos/company-profile/geomembrane1.jpg`],
 		},
 		{
 			title: 'Welding',
 			description: 'Industrial welding sparks, pipe welding HDPE, and metal fabrication workshops.',
-			image: `${base}/photos/company-profile/welding.jpg`,
+			images: [`${base}/photos/company-profile/welding.jpg`],
 		},
 		{
 			title: 'Plates / Pipes',
 			description: 'Stainless steel pipes, industrial piping systems, and metal plates.',
-			image: `${base}/photos/company-profile/plates-pipes.jpg`,
+			images: [
+				`${base}/photos/company-profile/plates1.jpg`,
+				`${base}/photos/company-profile/hdpe-pipes.jpg`,
+			],
 		},
 		{
 			title: 'PPE',
 			description: 'Construction worker safety gear and industrial protective equipment.',
-			image: `${base}/photos/company-profile/ppe.jpg`,
+			images: [`${base}/photos/company-profile/ppe.jpg`],
 		},
 		{
 			title: 'Conveyor Belts',
 			description: 'Conveyor belt systems, rollers, pulleys, and mining conveyor accessories.',
-			image: `${base}/photos/company-profile/conveyor-belts.jpg`,
+			images: [`${base}/photos/company-profile/conveyor-belts.jpg`],
 		},
 		{
 			title: 'Instrumentation',
 			description: 'Industrial sensors, flow meters, probes, and control instrumentation.',
-			image: photo('industrial-04.jpg'),
+			images: [photo('industrial-04.jpg')],
 		},
 		{
 			title: 'Electrical',
 			description: 'Industrial electrical panels, transformers, substations, and motors.',
-			image: `${base}/photos/company-profile/electrical.jpg`,
+			images: [`${base}/photos/company-profile/electrical.jpg`],
 		},
 		{
 			title: 'Valves & Pumps',
 			description: 'Industrial valves, chemical pumps, and water pump systems.',
-			image: `${base}/photos/company-profile/valves-pumps.jpg`,
+			images: [
+				`${base}/photos/company-profile/valves.jpg`,
+				`${base}/photos/company-profile/hdpe-pipes.jpg`,
+			],
 		},
 		{
 			title: 'Laboratory',
 			description: 'Industrial and medical laboratory equipment and consumables.',
-			image: `${base}/photos/company-profile/laboratory.jpg`,
+			images: [
+				`${base}/photos/company-profile/labs2.jpg`,
+				`${base}/photos/company-profile/valves.jpg`,
+			],
 		},
 		{
 			title: 'Filtration',
 			description: 'Industrial filtration systems and water filtration plant support.',
-			image: `${base}/photos/company-profile/filtration.jpg`,
+			images: [`${base}/photos/company-profile/filtration.jpg`],
 		},
 	],
 	services: [
