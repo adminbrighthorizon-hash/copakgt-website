@@ -14,7 +14,12 @@ const SITE = isCloudflare
 export default defineConfig({
   site: SITE,
   base: PROD_BASE,
-
-  output: 'server',
-  adapter: cloudflare(),
+  ...(isCloudflare
+    ? {
+        output: 'server',
+        adapter: cloudflare(),
+      }
+    : {
+        output: 'static',
+      }),
 });
