@@ -54,7 +54,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 						<article class="service-card panel">
 							<div class={`service-media${card.images.length > 1 ? ' service-media--duo' : ''}`}>
 								{card.images.map((src, i) => (
-									<img src={src} alt={i === 0 ? card.title : `${card.title} ${i + 1}`} loading="lazy" decoding="async" />
+									<img
+										src={src}
+										alt={i === 0 ? card.title : `${card.title} ${i + 1}`}
+										class={src.includes('pump1.jpg') ? 'service-image--fit' : ''}
+										loading="lazy"
+										decoding="async"
+									/>
 								))}
 							</div>
 							<div class="service-copy">
@@ -205,6 +211,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 	.service-media--duo img {
 		height: 220px;
+	}
+
+	.service-media img.service-image--fit {
+		object-fit: contain;
+		background: #0f1113;
+		padding: 0.35rem;
 	}
 
 	.service-copy {

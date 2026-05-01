@@ -70,7 +70,7 @@ export const site = {
 			description: 'Stainless steel pipes, industrial piping systems, and metal plates.',
 			images: [
 				`${base}/photos/company-profile/plates1.jpg`,
-				`${base}/photos/company-profile/hdpe-pipes.jpg`,
+				`${base}/photos/company-profile/pipes1.jpg`,
 			],
 		},
 		{
@@ -98,7 +98,7 @@ export const site = {
 			description: 'Industrial valves, chemical pumps, and water pump systems.',
 			images: [
 				`${base}/photos/company-profile/valves.jpg`,
-				`${base}/photos/company-profile/hdpe-pipes.jpg`,
+				`${base}/photos/company-profile/pump1.jpg`,
 			],
 		},
 		{
