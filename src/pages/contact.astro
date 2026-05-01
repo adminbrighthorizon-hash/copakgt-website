@@ -33,7 +33,7 @@ const contactBackground = `${base}/photos/company-profile/contact-bg.jpg`;
 
 			<section class="section-gap panel block">
 				<h2>Send Us a Message</h2>
-				<p class="form-note">Complete the form below and we will send your message to info@copak.com.</p>
+				<p class="form-note">Complete the form below and we will send your message to brighthorizonza@gmail.com (testing).</p>
 				<form id="contact-form" class="contact-form">
 					<div class="contact-form-grid">
 						<label>
@@ -80,6 +80,10 @@ const contactBackground = `${base}/photos/company-profile/contact-bg.jpg`;
 </Layout>
 
 <script>
+	// Replace the value below with your Web3Forms access key.
+	// For testing, create the key using brighthorizonza@gmail.com at https://web3forms.com.
+	const WEB3FORMS_ACCESS_KEY = '473d2d77-7c29-493c-86b6-2153e254275d';
+
 	const contactForm = document.getElementById('contact-form');
 	const formStatus = document.getElementById('form-status');
 
@@ -95,21 +99,17 @@ const contactBackground = `${base}/photos/company-profile/contact-bg.jpg`;
 			const message = (formData.get('message') ?? '').toString().trim();
 			const company = (formData.get('company') ?? '').toString().trim();
 
-			const openMailClient = () => {
-				const body = [
-					`Name: ${name}`,
-					`Email: ${email}`,
-					`Phone: ${phone || 'N/A'}`,
-					'',
-					'Message:',
-					message,
-				].join('\n');
-				window.location.href = `mailto:info@copak.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-			};
-
 			if (!name || !email || !subject || !message) {
 				formStatus.textContent = 'Please complete all required fields.';
 				formStatus.dataset.state = 'error';
+				return;
+			}
+
+			// Honeypot spam check
+			if (company) {
+				formStatus.textContent = 'Message sent successfully. We will contact you soon.';
+				formStatus.dataset.state = 'success';
+				contactForm.reset();
 				return;
 			}
 
@@ -120,42 +120,42 @@ const contactBackground = `${base}/photos/company-profile/contact-bg.jpg`;
 				submitButton.disabled = true;
 			}
 
-			fetch('/api/contact', {
+			const body = [
+				`Phone: ${phone || 'N/A'}`,
+				'',
+				'Message:',
+				message,
+			].join('\n');
+
+			// Free plan payload: access_key routes to the primary inbox for this key.
+			fetch('https://api.web3forms.com/submit', {
 				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
+				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
+					access_key: WEB3FORMS_ACCESS_KEY,
+					from_name: 'COPAK Website',
 					name,
 					email,
-					phone,
-					subject,
-					message,
-					company,
+					subject: `[COPAK Website] ${subject}`,
+					message: body,
 				}),
 			})
 				.then(async (response) => {
 					const payload = await response.json().catch(() => ({}));
-					if (response.status === 404 || response.status === 405) {
-						openMailClient();
-						formStatus.textContent = 'Opened your email client because server delivery is not available on this host.';
-						formStatus.dataset.state = 'pending';
-						return;
+					if (payload?.success) {
+						formStatus.textContent = 'Message sent successfully. We will contact you soon.';
+						formStatus.dataset.state = 'success';
+						contactForm.reset();
+					} else {
+						throw new Error(payload?.message || 'Unable to send message right now.');
 					}
-					if (!response.ok) {
-						throw new Error(payload?.error || 'Unable to send message right now.');
-					}
-					formStatus.textContent = 'Message sent successfully. We will contact you soon.';
-					formStatus.dataset.state = 'success';
-					contactForm.reset();
 				})
 				.catch((error) => {
-					openMailClient();
 					formStatus.textContent =
 						error instanceof Error
-							? `${error.message} Opened your email client instead.`
-							: 'Opened your email client instead.';
-					formStatus.dataset.state = 'pending';
+							? error.message
+							: 'Unable to send message right now. Please try again or email us directly.';
+					formStatus.dataset.state = 'error';
 				})
 				.finally(() => {
 					if (submitButton instanceof HTMLButtonElement) {
