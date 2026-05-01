@@ -57,7 +57,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 									<img
 										src={src}
 										alt={i === 0 ? card.title : `${card.title} ${i + 1}`}
-										class={src.includes('pump1.jpg') ? 'service-image--fit' : ''}
+										class={src.includes('pump1.jpg') || src.includes('valves.jpg') ? 'service-image--fit' : ''}
 										loading="lazy"
 										decoding="async"
 									/>
@@ -216,7 +216,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	.service-media img.service-image--fit {
 		object-fit: contain;
 		background: #0f1113;
-		padding: 0.35rem;
+		padding: 0.25rem;
+		object-position: center;
 	}
 
 	.service-copy {
