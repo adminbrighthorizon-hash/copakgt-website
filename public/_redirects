@@ -1,4 +1,0 @@
-# Force HTTPS and canonical host
-http://copakgt.com/* https://www.copakgt.com/:splat 301
-http://www.copakgt.com/* https://www.copakgt.com/:splat 301
-https://copakgt.com/* https://www.copakgt.com/:splat 301
