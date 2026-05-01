@@ -57,7 +57,7 @@ export const site = {
 			title: 'Water Treatment',
 			description: 'Public and industrial water treatment: Drinking Water, Utility Water — Boilers, Cooling Towers, Chillers, Process Water, Waste Water — Effluent & Sewage.',
 			images: [
-				`${base}/photos/company-profile/water-treat2.jpg`,
+				`${base}/photos/new/water treat2.jpeg`,
 			],
 		},
 		{
