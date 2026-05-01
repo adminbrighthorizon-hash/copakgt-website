@@ -125,30 +125,70 @@ Confirm:
 - Always use `import.meta.env.BASE_URL` for internal assets/routes
 - Centralize base-path handling in layouts/components where possible
 
+## Local Testing (Before Pushing)
+
+### 1. UI / layout testing
+```bash
+npm run dev
+```
+Open **http://localhost:4321** in your browser.  
+Base URL is `/` locally — no subdirectory prefix — so all links and assets resolve normally.
+
+> **Contact form** — the `/api/contact` endpoint is a Cloudflare Pages Function and will **not** run in `npm run dev`. For form testing, use the Wrangler method below.
+
+### 2. Production simulation (GitHub Pages)
+Simulates the `/copakgt-website/` base path used on GitHub Pages:
+```bash
+npm run build
+npm run preview
+```
+Open **http://localhost:4321/copakgt-website/** and confirm:
+- Styling is applied
+- Images load correctly
+- Navigation links work
+
+### 3. Full Cloudflare simulation (includes contact form)
+Builds and serves the site exactly as Cloudflare Pages would, including the `/api/contact` edge function:
+```bash
+npm run build
+npx wrangler pages dev dist --compatibility-date=2024-01-01
+```
+Pass environment variables if testing the contact form:
+```bash
+npx wrangler pages dev dist --compatibility-date=2024-01-01 --binding RESEND_API_KEY=your_key_here
+```
+Open **http://localhost:8788**.
+
+---
+
 ## GitHub Actions CI/CD
 
-### Branch behavior
-- Push to `dev` runs CI build automatically via `.github/workflows/dev-ci.yml`
-- Push to `dev` deploys to GitHub Pages via `.github/workflows/deploy-github-pages.yml`
+### Branch behaviour
 
-## Cloudflare Deployment (Simplified)
+| Branch | Workflow file | What happens |
+|---|---|---|
+| `dev` | `deploy-github-pages.yml` | Builds site and deploys to GitHub Pages (`gh-pages` branch) |
+| `main` | `deploy-cloudflare.yml` | Builds site and deploys to Cloudflare Pages |
 
-Cloudflare deployment is handled only by **Cloudflare Pages Git integration**.
+### Required GitHub secrets
+Add these under **Settings → Secrets and variables → Actions**:
 
-### Source of truth
-- Branch: `main`
-- Build command: `npm run build`
-- Build output directory: `dist`
-
-### Important
-- Use the Pages URL (for example `https://copakgt-website.pages.dev`) for validation.
-- Do not use a Workers URL (`*.workers.dev`) for this static Astro site.
-- No GitHub Action is needed for Cloudflare deployment.
+| Secret | Description |
+|---|---|
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API token with **Cloudflare Pages: Edit** permission |
+| `CLOUDFLARE_ACCOUNT_ID` | Your Cloudflare account ID |
 
 ### GitHub Pages setting required
 In your GitHub repository:
 - Go to **Settings → Pages**
 - Set **Source** to **GitHub Actions**
+
+## Cloudflare Pages
+
+- **Deployed via:** `deploy-cloudflare.yml` on push to `main`
+- **Project name:** `copakgt-website`
+- **Production URL:** https://copakgt-website.pages.dev
+- Build uses `CF_PAGES=1` env var so `astro.config.mjs` sets base to `/` (no subdirectory)
 
 ## Contact Form Server Email Delivery
 
