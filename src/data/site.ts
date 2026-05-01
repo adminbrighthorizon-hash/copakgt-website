@@ -47,7 +47,13 @@ export const site = {
 	serviceCards: [
 		{
 			title: 'Laboratory',
-			description: 'Industrial and medical laboratory equipment.',
+			description: 'Industrial and medical laboratory equipment, instruments, reagents, and chemicals.',
+			items: [
+				'Industrial laboratory equipment and instruments',
+				'Medical laboratory equipment and instruments',
+				'Laboratory reagents and chemicals',
+				'Analytical and testing consumables',
+			],
 			images: [
 				`${base}/photos/company-profile/labs2.jpg`,
 				`${base}/photos/company-profile/labs1.jpg`,
@@ -55,7 +61,13 @@ export const site = {
 		},
 		{
 			title: 'Water Treatment',
-			description: 'Public and industrial water treatment: Drinking Water, Utility Water — Boilers, Cooling Towers, Chillers, Process Water, Waste Water — Effluent & Sewage.',
+			description: 'Public and industrial water treatment solutions.',
+			items: [
+				'Drinking water treatment systems',
+				'Utility water — boilers, cooling towers, and chillers',
+				'Process water treatment',
+				'Wastewater — effluent and sewage management',
+			],
 			images: [
 				`${base}/photos/new/water treat2.jpeg`,
 			],
@@ -63,21 +75,45 @@ export const site = {
 		{
 			title: 'General Products',
 			description: 'Industrial tools, construction materials, and hardware supplies.',
+			items: [
+				'Industrial tools and hardware supplies',
+				'Construction materials and fittings',
+				'Fasteners, seals, and mechanical components',
+				'Site consumables and maintenance supplies',
+			],
 			images: [`${base}/photos/company-profile/general-products.jpg`],
 		},
 		{
 			title: 'Crusher / Mining',
 			description: 'Industrial crusher systems, mining equipment, and rock crushing plant support.',
+			items: [
+				'Crusher systems and wear parts',
+				'Mining equipment and spare parts',
+				'Rock crushing plant components',
+				'Crusher maintenance and support services',
+			],
 			images: [`${base}/photos/company-profile/crusher-mining.jpg`],
 		},
 		{
 			title: 'Geomembrane',
 			description: 'Geomembrane installation, repair, and HDPE liner applications.',
+			items: [
+				'Geomembrane supply and installation',
+				'HDPE liner fabrication and repair',
+				'Pond and containment lining systems',
+				'Geosynthetic products and accessories',
+			],
 			images: [`${base}/photos/company-profile/geomembrane1.jpg`],
 		},
 		{
 			title: 'Mechanical Welding and HDPE PIPE Welding',
 			description: 'Industrial metal fabrication, mechanical welding, and HDPE pipe welding services.',
+			items: [
+				'Industrial metal fabrication and structural welding',
+				'Mechanical welding for plant and equipment',
+				'HDPE pipe butt fusion and electrofusion welding',
+				'Pipe fitting, assembly, and pressure testing',
+			],
 			images: [
 				`${base}/photos/company-profile/weldingf.avif`,
 				`${base}/photos/company-profile/hdpe-pipes.jpg`,
@@ -86,6 +122,12 @@ export const site = {
 		{
 			title: 'Plates / Pipes',
 			description: 'Stainless steel pipes, industrial piping systems, and metal plates.',
+			items: [
+				'Metal plates in various grades and sizes',
+				'Stainless steel 316L plates and pipes',
+				'HDPE and industrial piping systems',
+				'Electrowinning cathodes, anodes, and edge strips',
+			],
 			images: [
 				`${base}/photos/company-profile/plates1.jpg`,
 				`${base}/photos/company-profile/pipes1.jpg`,
@@ -94,21 +136,45 @@ export const site = {
 		{
 			title: 'Conveyor Belts',
 			description: 'Conveyor belt systems, rollers, pulleys, and mining conveyor accessories.',
+			items: [
+				'Conveyor belt supply and accessories',
+				'Pulleys, idlers, and rollers',
+				'Wear plates, couplings, and reducers',
+				'Belt installation and maintenance services',
+			],
 			images: [`${base}/photos/company-profile/conveyor-belts.jpg`],
 		},
 		{
 			title: 'Instrumentation',
 			description: 'Industrial sensors, flow meters, probes, and control instrumentation.',
+			items: [
+				'Transmitters and signal converters',
+				'Flow meters and level sensors',
+				'Vibration monitoring sensors',
+				'Probes and analytical instruments',
+			],
 			images: [photo('industrial-06.jpg')],
 		},
 		{
 			title: 'Electrical',
 			description: 'Industrial electrical panels, transformers, substations, and motors.',
+			items: [
+				'Electrical panels, switchgear, and control gear',
+				'Transformers and mini substations',
+				'Electric motors and variable speed drives',
+				'Generators, solar lighting, and cable accessories',
+			],
 			images: [`${base}/photos/company-profile/electrical.jpg`],
 		},
 		{
 			title: 'Valves & Pumps',
 			description: 'Industrial valves, chemical pumps, and water pump systems.',
+			items: [
+				'Diaphragm, butterfly, guillotine, and pinch valves',
+				'Multistage and chemical centrifugal pumps',
+				'Clear water and dosing pumps',
+				'Valve and pump installation and maintenance',
+			],
 			images: [
 				`${base}/photos/company-profile/valves.jpg`,
 				`${base}/photos/company-profile/pums.avif`,
@@ -117,13 +183,24 @@ export const site = {
 		{
 			title: 'Filtration',
 			description: 'Industrial filtration systems and water filtration plant support.',
+			items: [
+				'Industrial filtration systems and media',
+				'Water filtration plant design and supply',
+				'Filter housings, cartridges, and membranes',
+				'Backwash and regeneration systems',
+			],
 			images: [`${base}/photos/company-profile/filtration1.jpg`],
 		},
 	],
 	services: [
 		{
 			category: 'Laboratory',
-			items: ['Industrial laboratory equipment', 'Medical laboratory equipment'],
+			items: [
+				'Industrial laboratory equipment and instruments',
+				'Medical laboratory equipment and instruments',
+				'Laboratory reagents and chemicals',
+				'Analytical and testing consumables',
+			],
 		},
 		{
 			category: 'Water Treatment',
