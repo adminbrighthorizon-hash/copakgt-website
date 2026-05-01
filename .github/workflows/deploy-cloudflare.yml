@@ -28,9 +28,6 @@ jobs:
 
       - name: Build Astro site
         run: npm run build
-        env:
-          CF_PAGES: '1'
-          ASTRO_SITE: https://copakgt-website.pages.dev
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
