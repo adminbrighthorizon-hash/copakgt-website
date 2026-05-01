@@ -86,7 +86,7 @@ export const site = {
 		{
 			title: 'Instrumentation',
 			description: 'Industrial sensors, flow meters, probes, and control instrumentation.',
-			images: [photo('industrial-04.jpg')],
+			images: [photo('industrial-06.jpg')],
 		},
 		{
 			title: 'Electrical',
@@ -106,7 +106,7 @@ export const site = {
 			description: 'Industrial and medical laboratory equipment and consumables.',
 			images: [
 				`${base}/photos/company-profile/labs2.jpg`,
-				`${base}/photos/company-profile/valves.jpg`,
+				`${base}/photos/company-profile/labs1.jpg`,
 			],
 		},
 		{

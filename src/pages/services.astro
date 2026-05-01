@@ -6,6 +6,29 @@ import { site } from '../data/site';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const servicesBackground = `${base}/photos/company-profile/products-services-bg.jpg`;
 const quoteMailto = `mailto:${site.contacts.email}?subject=${encodeURIComponent('Quotation Request - COPAK GENERAL TRADING')}`;
+const serviceGroupImages: Record<string, string[]> = {
+	Laboratory: [
+		`${base}/photos/company-profile/labs2.jpg`,
+		`${base}/photos/company-profile/labs1.jpg`,
+	],
+	Pumps: [
+		`${base}/photos/company-profile/valves-pumps.jpg`,
+		`${base}/photos/company-profile/hdpe-pipes.jpg`,
+	],
+	Valves: [`${base}/photos/company-profile/valves.jpg`],
+	Electrical: [`${base}/photos/company-profile/electrical.jpg`],
+	Instrumentation: [`${base}/photos/industrial-04.jpg`],
+	'Conveyor Belts': [`${base}/photos/company-profile/conveyor-belts.jpg`],
+	PPE: [`${base}/photos/company-profile/ppe.jpg`],
+	'Plates, Pipes & Electrowinning': [
+		`${base}/photos/company-profile/plates1.jpg`,
+		`${base}/photos/company-profile/hdpe-pipes.jpg`,
+	],
+	'Additional Services': [
+		`${base}/photos/company-profile/geomembrane1.jpg`,
+		`${base}/photos/company-profile/welding.jpg`,
+	],
+};
 ---
 
 <Layout title={`Products & Services | ${site.name}`} description="Detailed overview of products and services offered by COPAK GENERAL TRADING.">
@@ -25,14 +48,27 @@ const quoteMailto = `mailto:${site.contacts.email}?subject=${encodeURIComponent(
 			</section>
 
 			<section class="cards section-gap">
-				{site.services.map((group) => (
+				{site.services.map((group) => {
+					const groupImages = serviceGroupImages[group.category] ?? [];
+
+					return (
 					<article class="panel group-card">
-						<h2>{group.category}</h2>
-						<ul>
-							{group.items.map((item) => <li>{item}</li>)}
-						</ul>
+						{groupImages.length > 0 && (
+							<div class={`group-media${groupImages.length > 1 ? ' group-media--duo' : ''}`}>
+								{groupImages.map((src, i) => (
+									<img src={src} alt={i === 0 ? group.category : `${group.category} ${i + 1}`} loading="lazy" decoding="async" />
+								))}
+							</div>
+						)}
+						<div class="group-content">
+							<h2>{group.category}</h2>
+							<ul>
+								{group.items.map((item) => <li>{item}</li>)}
+							</ul>
+						</div>
 					</article>
-				))}
+					);
+				})}
 			</section>
 		</main>
 	</SiteShell>
@@ -134,6 +170,28 @@ const quoteMailto = `mailto:${site.contacts.email}?subject=${encodeURIComponent(
 	}
 
 	.group-card {
+		overflow: hidden;
+		padding: 0;
+	}
+
+	.group-media {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+	.group-media--duo {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.group-media img {
+		width: 100%;
+		height: 170px;
+		object-fit: cover;
+		display: block;
+		filter: saturate(1.05) contrast(1.02);
+	}
+
+	.group-content {
 		padding: 1rem;
 	}
 
