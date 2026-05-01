@@ -52,7 +52,7 @@ export const onRequestPost = async ({ request, env }: FunctionContext) => {
     return json({ error: 'Missing required fields.' }, 400);
   }
 
-  const to = env.CONTACT_TO_EMAIL?.trim() || 'info@copak.com';
+  const to = env.CONTACT_TO_EMAIL?.trim() || 'info@copakgt.com';
   const text = [
     `Name: ${name}`,
     `Email: ${email}`,
